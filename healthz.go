@@ -41,6 +41,13 @@ func (h *healthz) Serve() error {
 	return http.ListenAndServe(h.addr, h.mux)
 }
 
+func (h *healthz) MustServe() {
+	err := http.ListenAndServe(h.addr, h.mux)
+	if err != nil {
+		panic(err)
+	}
+}
+
 type Option func(*options)
 
 func Mux(mux *http.ServeMux) Option {
