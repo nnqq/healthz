@@ -14,8 +14,8 @@ import "github.com/nnqq/healthz"
 func main() {
     h := healthz.NewHealthz()
     err := h.Serve()
-	if err != nil {
+    if err != nil {
         panic(err)
-	}
+    }
 }
 ```
